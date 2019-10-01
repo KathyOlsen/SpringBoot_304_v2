@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset=" UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>To Do Detail</title>
+</head>
+<body>
+    <a href="/">Show All Yo Dos</a>
+    <br>
+    Task: <span th:text="${todo.taskname}"></span><br>
+    Due Date: <span th:text="${todo.duedate}"></span><br>
+    Priority: <span th:text="${todo.priority}"></span><br>
+    <a th:href="@{/delete/{id}(id=${todo.id})}">Delete this to do</a>
+</body>
+</html>
