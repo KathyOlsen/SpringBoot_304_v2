@@ -4,14 +4,15 @@
     <meta charset=" UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>To Do Detail</title>
+    <title>Car Detail</title>
 </head>
 <body>
-    <a href="/">Show All Yo Dos</a>
-    <br>
-    Task: <span th:text="${todo.taskname}"></span><br>
-    Due Date: <span th:text="${todo.duedate}"></span><br>
-    Priority: <span th:text="${todo.priority}"></span><br>
-    <a th:href="@{/delete/{id}(id=${todo.id})}">Delete this to do</a>
+<a href="/">Show All Cars</a>
+<br>
+Year: <span th:text="${car.year}"></span>
+<br>
+Make: <span th:text="${car.make}"></span>
+<br>
+Model: <span th:text="${car.model}"></span>
 </body>
 </html>

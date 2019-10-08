@@ -4,26 +4,26 @@
     <meta charset=" UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>To Do List</title>
+    <title>Car List</title>
 </head>
 <body>
-    <a href="/add">Add a To Do</a>
+    <a href="/add">Add a Car</a>
     <br>
     <table>
         <tr>
-            <th>Task </th>
-            <th>Due Date </th>
-            <th>Priority </th>
+            <th>Year </th>
+            <th>Make </th>
+            <th>Model </th>
             <th>Actions </th>
         </tr>
-        <tr th:each="todo : ${todos}">
-            <td th:text=" ${todo.taskname}  "> </td>
-            <td th:text=" ${todo.duedate}  "> </td>
-            <td th:text=" ${todo.priority}  "> </td>
+        <tr th:each="car : ${cars}">
+            <td th:text=" ${car.year}  "> </td>
+            <td th:text=" ${car.make}  "> </td>
+            <td th:text=" ${car.model}  "> </td>
             <td>
-                <a th:href="@{/update/{id}(id=${todo.id})}">Update</a> -
-                <a th:href="@{/detail/{id}(id=${todo.id})}">Details</a> -
-                <a th:href="@{/delete/{id}(id=${todo.id})}">Delete</a>
+                <a th:href="@{/update/{id}(id=${car.id})}">Update</a> -
+                <a th:href="@{/detail/{id}(id=${car.id})}">Details</a> -
+                <a th:href="@{/delete/{id}(id=${car.id})}">Delete</a>
             </td>
         </tr>
     </table>

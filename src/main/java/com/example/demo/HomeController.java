@@ -14,44 +14,44 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
     @Autowired
-    ToDoRepository toDoRepository;
+    CarRepository carRepository;
 
     @RequestMapping("/")
-    public String listToDos(Model model){
-        model.addAttribute("todos", toDoRepository.findAll());
+    public String listCars(Model model){
+        model.addAttribute("cars", carRepository.findAll());
         return "list";
     }
 
     @GetMapping("/add")
-    public String toDoForm(Model model){
-        model.addAttribute("todo", new ToDo());
-        return "todoform";
+    public String carForm(Model model){
+        model.addAttribute("car", new Car());
+        return "carform";
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid ToDo toDo, BindingResult result){
+    public String processForm(@Valid Car car, BindingResult result){
         if(result.hasErrors()){
-            return "todoform";
+            return "carform";
         }
-        toDoRepository.save(toDo);
+        carRepository.save(car);
         return "redirect:/";
     }
 
     @RequestMapping("/detail/{id}")
-    public String showToDo(@PathVariable("id") long id, Model model){
-        model.addAttribute("todo", toDoRepository.findById(id).get());
+    public String showCar(@PathVariable("id") long id, Model model){
+        model.addAttribute("car", carRepository.findById(id).get());
         return "show";
     }
 
     @RequestMapping("/update/{id}")
-    public String updateToDo(@PathVariable("id") long id, Model model){
-        model.addAttribute("todo", toDoRepository.findById(id).get());
-        return "todoform";
+    public String updateCourse(@PathVariable("id") long id, Model model){
+        model.addAttribute("car", carRepository.findById(id).get());
+        return "carform";
     }
 
     @RequestMapping("/delete/{id}")
-    public String delToDo(@PathVariable("id") long id, Model model){
-        toDoRepository.deleteById(id);
+    public String delCar(@PathVariable("id") long id, Model model){
+        carRepository.deleteById(id);
         return "redirect:/";
     }
 }
